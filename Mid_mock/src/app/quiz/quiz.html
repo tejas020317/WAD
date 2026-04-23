@@ -1,0 +1,29 @@
+<div class="quiz-container">
+  <div class="quiz-header">
+    <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
+  </div>
+  
+  <div class="question-section">
+    <p class="question-text">{{ questions[currentQuestionIndex].question }}</p>
+    
+    <div class="options-container">
+      @for (option of questions[currentQuestionIndex].options; track option) {
+        <button 
+          class="option-btn" 
+          [class.selected]="selectedOption === option"
+          (click)="selectOption(option)">
+          {{ option }}
+        </button>
+      }
+    </div>
+  </div>
+  
+  <div class="quiz-footer">
+    <button 
+      class="btn-next" 
+      [disabled]="!selectedOption" 
+      (click)="nextQuestion()">
+      {{ currentQuestionIndex === questions.length - 1 ? 'Finish Quiz' : 'Next' }}
+    </button>
+  </div>
+</div>

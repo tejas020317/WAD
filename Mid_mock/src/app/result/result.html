@@ -1,0 +1,23 @@
+<div class="result-container">
+  <h2>Quiz Completed!</h2>
+  
+  <div class="score-card">
+    <h3>Your Score</h3>
+    <div class="score-display">
+      <span class="score-number">{{ score }}</span>
+      <span class="score-divider">/</span>
+      <span class="score-total">{{ totalQuestions }}</span>
+    </div>
+    <p class="score-message">
+      @if (score === totalQuestions) {
+        Perfect score! You are amazing! ??
+      } @else if (score && score > 0) {
+        Good job! You passed. ??
+      } @else {
+        Keep practicing, you'll get it next time! ??
+      }
+    </p>
+  </div>
+  
+  <button class="btn-restart" (click)="restartQuiz()">Try Again</button>
+</div>
