@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICT B.E. Course Structure - Second Year (SE)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <style>
+        body, .ui-page { font-family: 'Poppins', sans-serif !important; background: linear-gradient(135deg,#eef2ff 0%,#f5f7fa 60%,#e8f4fd 100%) !important; }
+        .ui-page { overflow-x: hidden; }
+        .custom-header { background: linear-gradient(135deg,#4A90E2 0%,#357ABD 60%,#2563a8 100%) !important; color:#fff !important; border:none !important; box-shadow:0 8px 24px rgba(74,144,226,.35); padding:14px 18px; margin:14px 14px 0; border-radius:16px; overflow:hidden; position:relative; }
+        .custom-header::before { content:""; position:absolute; top:-40px; right:-40px; width:160px; height:160px; background:rgba(255,255,255,.07); border-radius:50%; pointer-events:none; }
+        .header-top { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; }
+        .brand-wrap { display:flex; align-items:center; gap:12px; min-width:0; flex:1; }
+        .header-logo { width:38px; height:38px; object-fit:contain; flex-shrink:0; filter:drop-shadow(0 2px 4px rgba(0,0,0,.2)); }
+        .custom-header h1 { font-size:1.1rem; font-weight:700; margin:0; text-shadow:0 1px 3px rgba(0,0,0,.2) !important; line-height:1.2; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .menu-toggle { display:none; align-items:center; justify-content:center; width:44px; height:38px; background:#1a56d4; border:1.5px solid #1246b5; border-radius:10px; padding:0; cursor:pointer; flex-shrink:0; transition:background .25s,transform .2s; }
+        .menu-toggle:hover { background:#1246b5; transform:scale(1.05); }
+        .menu-icon,.menu-icon::before,.menu-icon::after { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:transform .3s,opacity .3s; content:""; }
+        .menu-icon { position:relative; }
+        .menu-icon::before { position:absolute; top:-6px; left:0; }
+        .menu-icon::after  { position:absolute; top:6px;  left:0; }
+        .menu-toggle.open .menu-icon { background:transparent; }
+        .menu-toggle.open .menu-icon::before { transform:translateY(6px) rotate(45deg); }
+        .menu-toggle.open .menu-icon::after  { transform:translateY(-6px) rotate(-45deg); }
+        .custom-navbar { margin-top:14px; background:rgba(255,255,255,.14); border-radius:12px; padding:6px; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); }
+        .custom-navbar ul { display:flex; justify-content:space-between; gap:8px; margin:0; padding:0; list-style:none; }
+        .custom-navbar li { flex:1; min-width:0; }
+        .custom-navbar a { display:block; text-align:center; border-radius:9px !important; border:1px solid transparent !important; background:rgba(255,255,255,.18) !important; color:#fff !important; text-shadow:none !important; box-shadow:none !important; font-weight:500 !important; font-size:.95rem; padding:10px 8px !important; transition:transform .25s,background .25s,border-color .25s,box-shadow .25s; font-family:'Poppins',sans-serif !important; }
+        .custom-navbar a:hover,.custom-navbar a:focus { background:rgba(255,255,255,.30) !important; border-color:rgba(255,255,255,.50) !important; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.12) !important; }
+        .custom-navbar a.ui-btn-active { background:#fff !important; color:#2f6fbc !important; border-color:#fff !important; font-weight:700 !important; box-shadow:0 4px 14px rgba(0,0,0,.15) !important; }
+        @media (max-width:768px) {
+            .custom-header { margin:10px 10px 0; padding:12px; }
+            .custom-header h1 { font-size:.95rem; }
+            .menu-toggle { display:inline-flex; }
+            .custom-navbar { margin-top:10px; display:none; padding:8px; }
+            .custom-navbar ul { flex-direction:column; gap:7px; }
+            .custom-navbar a { text-align:left; padding-left:14px !important; }
+        }
+        .ui-content { max-width:900px; margin:0 auto; padding:32px 18px !important; }
+        .page-title { text-align:center; font-weight:700; margin-top:0; margin-bottom:10px; font-size:1.7rem; background:linear-gradient(135deg,#4A90E2,#2563a8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-shadow:none; opacity:0; }
+        .page-subtitle { text-align:center; color:#6b7a99; font-size:.9rem; margin-bottom:28px; font-weight:400; opacity:0; }
+        .stats-strip { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; opacity:0; }
+        .stat-badge { background:#fff; border:1px solid #e0eaf8; border-radius:50px; padding:7px 18px; font-size:.82rem; font-weight:600; color:#4A90E2; box-shadow:0 2px 8px rgba(74,144,226,.10); display:flex; align-items:center; gap:6px; }
+        .ui-collapsible-set { margin:0; }
+        .ui-collapsible { margin:0 0 18px 0 !important; border-radius:14px !important; box-shadow:0 4px 18px rgba(25,60,100,.09) !important; overflow:hidden; border:none !important; opacity:0; transform:translateY(16px); }
+        .ui-collapsible-heading-toggle { background:#fff !important; color:#1e3a5f !important; border:none !important; text-shadow:none !important; padding:16px 16px 16px 48px !important; font-weight:600 !important; font-family:'Poppins',sans-serif !important; font-size:.97rem !important; transition:background .25s,color .25s; border-left:4px solid #4A90E2 !important; }
+        .ui-collapsible-heading-toggle:hover { background:#f0f7ff !important; color:#4A90E2 !important; }
+        .ui-collapsible-content { background:#fff !important; border:none !important; border-top:1px solid #edf1f9 !important; padding:0 !important; }
+        .subject-item { padding:16px 22px 16px 20px; border-bottom:1px solid #f0f4fb; cursor:pointer; transition:background .2s,transform .2s; display:flex; align-items:flex-start; gap:14px; }
+        .subject-item:last-child { border-bottom:none; }
+        .subject-item:hover { background:linear-gradient(90deg,#f0f7ff,#f8fbff) !important; transform:translateX(4px); }
+        .subject-icon { width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,#4A90E2,#357ABD); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; color:#fff; box-shadow:0 3px 8px rgba(74,144,226,.25); }
+        .subject-text { flex:1; min-width:0; }
+        .subject-item strong { display:block; color:#1e3a5f; font-weight:600; font-size:.98rem; margin-bottom:3px; }
+        .subject-desc { display:block; font-size:.85rem; color:#6b7a99; line-height:1.55; }
+        .custom-footer { background:transparent !important; border:none !important; color:#9aabcb !important; text-shadow:none !important; padding:24px 0 !important; }
+        .custom-footer h4 { font-weight:400; margin:0; text-align:center; font-size:.82rem; }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page" id="page-se">
+        <div data-role="header" class="custom-header">
+            <div class="header-top">
+                <div class="brand-wrap">
+                    <img src="logo.png" alt="PICT Logo" class="header-logo">
+                    <h1>PICT B.E. Course Structure</h1>
+                </div>
+                <button type="button" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
+            </div>
+            <div data-role="navbar" class="custom-navbar">
+                <ul>
+                    <li><a href="index.html" data-ajax="false">FE</a></li>
+                    <li><a href="se.html" class="ui-btn-active" data-ajax="false">SE</a></li>
+                    <li><a href="te.html" data-ajax="false">TE</a></li>
+                    <li><a href="be.html" data-ajax="false">BE</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="content" class="ui-content">
+            <h2 class="page-title">Second Year (SE) Subjects</h2>
+            <p class="page-subtitle">Core Computer Science foundations at PICT</p>
+            <div class="stats-strip">
+                <div class="stat-badge">5 Subjects</div>
+                <div class="stat-badge">Year 2 of 4</div>
+                <div class="stat-badge">CS Core</div>
+            </div>
+            <div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-iconpos="right">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>Data Structures and Algorithms</h3>
+                    <div class="subject-item">
+                        <div class="subject-icon">DS</div>
+                        <div class="subject-text">
+                            <strong>Data Structures and Algorithms</strong>
+                            <span class="subject-desc">Study of arrays, linked lists, trees, graphs, and sorting/searching algorithms.</span>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible" data-collapsed="true">
+                    <h3>Discrete Mathematics</h3>
+                    <div class="subject-item">
+                        <div class="subject-icon">DM</div>
+                        <div class="subject-text">
+                            <strong>Discrete Mathematics</strong>
+                            <span class="subject-desc">Logic, sets, relations, functions, and graph theory foundations.</span>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible" data-collapsed="true">
+                    <h3>Software Engineering</h3>
+                    <div class="subject-item">
+                        <div class="subject-icon">SE</div>
+                        <div class="subject-text">
+                            <strong>Software Engineering</strong>
+                            <span class="subject-desc">SDLC models, agile methodologies, system design, and project management.</span>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible" data-collapsed="true">
+                    <h3>Microprocessor</h3>
+                    <div class="subject-item">
+                        <div class="subject-icon">MP</div>
+                        <div class="subject-text">
+                            <strong>Microprocessor</strong>
+                            <span class="subject-desc">8086 architecture, assembly language programming, and interfacing techniques.</span>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible" data-collapsed="true">
+                    <h3>Object-Oriented Programming</h3>
+                    <div class="subject-item">
+                        <div class="subject-icon">OO</div>
+                        <div class="subject-text">
+                            <strong>Object-Oriented Programming</strong>
+                            <span class="subject-desc">Core OOP concepts — classes, inheritance, polymorphism — using C++ and Java.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" class="custom-footer">
+            <h4>&copy; 2026 PICT Course Structure &mdash; All rights reserved</h4>
+        </div>
+
+        <script>
+            $(document).on("pagecreate", "#page-se", function() {
+                var $menuToggle = $("#page-se .menu-toggle");
+                var $navbar     = $("#page-se .custom-navbar");
+                var BREAKPOINT  = 768;
+
+                $menuToggle.on("click", function() {
+                    $navbar.stop(true, true).slideToggle(250);
+                    $(this).toggleClass("open");
+                    $(this).attr("aria-expanded", $(this).hasClass("open") ? "true" : "false");
+                });
+
+                function syncNavState() {
+                    if ($(window).width() > BREAKPOINT) {
+                        $navbar.stop(true, true).show();
+                        $menuToggle.hide().removeClass("open").attr("aria-expanded", "false");
+                    } else {
+                        $menuToggle.css("display", "inline-flex");
+                        if (!$menuToggle.hasClass("open")) { $navbar.hide(); }
+                    }
+                }
+                $(window).on("resize.navse orientationchange.navse", syncNavState);
+                syncNavState();
+
+                $("#page-se .custom-navbar a").on("click", function() {
+                    if ($(window).width() <= BREAKPOINT) {
+                        $navbar.stop(true, true).slideUp(200);
+                        $menuToggle.removeClass("open").attr("aria-expanded", "false");
+                    }
+                });
+
+                $(".page-title").delay(80).animate({ opacity: 1 }, 500);
+                $(".page-subtitle").delay(200).animate({ opacity: 1 }, 500);
+                $(".stats-strip").delay(320).animate({ opacity: 1 }, 500);
+                $(".ui-collapsible").each(function(i) {
+                    var $el = $(this);
+                    setTimeout(function() {
+                        $el.animate({ opacity: 1 }, { duration: 400, step: function(now) { $(this).css("transform", "translateY(" + (16*(1-now)) + "px)"); } });
+                    }, 420 + i * 130);
+                });
+
+                $(".subject-item").on("click", function() {
+                    var name = $(this).find("strong").text();
+                    $(this).animate({ opacity: 0.4 }, 120).animate({ opacity: 1 }, 200);
+                    setTimeout(function() { alert("📖  " + name); }, 80);
+                });
+                $(".subject-item").on("touchstart", function(){ $(this).css("background","#e8f1ff"); })
+                    .on("touchend touchcancel", function(){ $(this).css("background",""); });
+                $(".ui-collapsible-heading-toggle")
+                    .on("mouseenter", function() { $(this).stop(true).animate({ paddingLeft: "52px" }, 150); })
+                    .on("mouseleave", function() { $(this).stop(true).animate({ paddingLeft: "48px" }, 150); });
+            });
+        </script>
+    </div>
+</body>
+</html>
