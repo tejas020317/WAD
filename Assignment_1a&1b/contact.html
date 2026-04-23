@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bharti Vidyapeeth Hospital</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heart-pulse text-danger me-2"></i>BV Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-out"><a href="login.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Login</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-out mt-2 mt-lg-0"><a href="register.html" class="btn btn-custom-primary btn-sm rounded-pill px-4">Register</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-in" style="display: none;"><a href="profile.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Profile</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-in mt-2 mt-lg-0" style="display: none;"><button onclick="userService.logout()" class="btn btn-custom-primary btn-sm rounded-pill px-4">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="hero-section" style="height: 50vh; min-height: 400px;">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10 hero-content">
+                    <h1>Contact Us</h1>
+                    <p>We're Here to Help - Reach Out Anytime</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        <!-- Contact Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center shadow p-4">
+                    <div class="icon-box mx-auto mb-3 text-primary">
+                        <i class="fas fa-phone-alt fa-2x"></i>
+                    </div>
+                    <h4>Phone</h4>
+                    <p class="text-muted small">Call us anytime</p>
+                    <hr class="mx-auto w-25 border-primary opacity-100">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><strong>Emergency:</strong><br>+91 20 2437 8888</li>
+                        <li class="mb-2"><strong>Appointment:</strong><br>+91 20 2437 7777</li>
+                        <li><strong>General Inquiry:</strong><br>+91 20 2437 6666</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center shadow p-4">
+                    <div class="icon-box mx-auto mb-3 text-danger">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </div>
+                    <h4>Email</h4>
+                    <p class="text-muted small">Send us a message</p>
+                    <hr class="mx-auto w-25 border-danger opacity-100">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><strong>General:</strong><br>info@bvhospitalpune.com</li>
+                        <li class="mb-2"><strong>Appointments:</strong><br>appointments@bvhospitalpune.com</li>
+                        <li><strong>Administration:</strong><br>admin@bvhospitalpune.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card h-100 text-center shadow p-4">
+                    <div class="icon-box mx-auto mb-3 text-success">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                    </div>
+                    <h4>Address</h4>
+                    <p class="text-muted small">Visit us</p>
+                    <hr class="mx-auto w-25 border-success opacity-100">
+                    <p>
+                        <strong>Bharti Vidyapeeth Hospital</strong><br>
+                        Dhankawadi, Katraj<br>
+                        Pune, Maharashtra 411043<br>
+                        India
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Row -->
+        <div class="row g-4 mb-5">
+            <!-- Contact Form -->
+            <div class="col-lg-6" id="appointment">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h3 class="mb-4 text-primary">Send Us a Message</h3>
+                    <form id="appointmentForm" novalidate>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control bg-light border-0 py-2" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of Birth *</label>
+                            <input type="date" class="form-control bg-light border-0 py-2" id="dob" required>
+                            <div class="invalid-feedback">You must be between 18 and 60 years old to book an
+                                appointment.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control bg-light border-0 py-2" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control bg-light border-0 py-2" id="phone" required
+                                placeholder="10 digits starting with 6-9">
+                            <div class="invalid-feedback">Phone must be 10 digits and start with 6, 7, 8, or 9.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password *</label>
+                            <input type="password" class="form-control bg-light border-0 py-2" id="password" required
+                                placeholder="Min 8 chars, 1 Capital, 1 Special">
+                            <div class="invalid-feedback">Password must have at least 8 characters, one capital letter,
+                                and one special symbol.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gender *</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderMale"
+                                        value="Male" required>
+                                    <label class="form-check-label" for="genderMale">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderFemale"
+                                        value="Female" required>
+                                    <label class="form-check-label" for="genderFemale">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="genderOther"
+                                        value="Other" required>
+                                    <label class="form-check-label" for="genderOther">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Consultation Days *</label>
+                            <div class="bg-light p-3 rounded">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="days" id="dayMon"
+                                        value="Monday">
+                                    <label class="form-check-label" for="dayMon">Mon</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="days" id="dayTue"
+                                        value="Tuesday">
+                                    <label class="form-check-label" for="dayTue">Tue</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="days" id="dayWed"
+                                        value="Wednesday">
+                                    <label class="form-check-label" for="dayWed">Wed</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="days" id="dayThu"
+                                        value="Thursday">
+                                    <label class="form-check-label" for="dayThu">Thu</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="days" id="dayFri"
+                                        value="Friday">
+                                    <label class="form-check-label" for="dayFri">Fri</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="days" id="daySat"
+                                        value="Saturday">
+                                    <label class="form-check-label" for="daySat">Sat</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback" id="daysError">Please select at least one preferred day.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <select class="form-select bg-light border-0 py-2" id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="appointment">Book an Appointment</option>
+                                <option value="inquiry">General Inquiry</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control bg-light border-0 py-2" id="message" rows="5"
+                                required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy
+                                        Policy</a> *
+                                </label>
+                                <div class="invalid-feedback">You must agree before submitting.</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-custom-primary w-100 py-2">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="col-lg-6">
+                <h3 class="mb-4 text-primary">Additional Information</h3>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body d-flex align-items-start">
+                        <div class="icon-box me-3 text-primary flex-shrink-0" style="width: 40px; height: 40px;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title text-primary">Hospital Timings</h5>
+                            <p class="mb-1 text-muted small"><strong>Emergency:</strong> 24/7 - All days</p>
+                            <p class="mb-1 text-muted small"><strong>OPD:</strong> Monday - Saturday, 8:00 AM - 8:00 PM
+                            </p>
+                            <p class="mb-0 text-muted small"><strong>Sunday OPD:</strong> 9:00 AM - 1:00 PM (Emergency
+                                only)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body d-flex align-items-start">
+                        <div class="icon-box me-3 text-danger flex-shrink-0" style="width: 40px; height: 40px;">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title text-danger">Ambulance Service</h5>
+                            <p class="mb-1 text-muted small"><strong>24/7 Ambulance:</strong> +91 20 2437 9999</p>
+                            <p class="mb-0 text-muted small">Advanced Life Support (ALS) and Basic Life Support (BLS)
+                                ambulances available</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body d-flex align-items-start">
+                        <div class="icon-box me-3 text-success flex-shrink-0" style="width: 40px; height: 40px;">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title text-success">Appointment Booking</h5>
+                            <p class="mb-1 text-muted small"><strong>Online:</strong> Visit our website</p>
+                            <p class="mb-1 text-muted small"><strong>Phone:</strong> +91 20 2437 7777</p>
+                            <p class="mb-0 text-muted small"><strong>Walk-in:</strong> Reception desk at main entrance
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body d-flex align-items-start">
+                        <div class="icon-box me-3 text-warning flex-shrink-0" style="width: 40px; height: 40px;">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title text-warning">Payment Options</h5>
+                            <p class="mb-0 text-muted small">Cash, Credit/Debit Cards, UPI, Net Banking, Insurance (TPA)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info border-0 shadow-sm d-flex align-items-center mb-0">
+                    <i class="fas fa-bell me-3 fs-4"></i>
+                    <div>
+                        <h5 class="alert-heading h6 fw-bold">Important Notice</h5>
+                        <p class="mb-0 small">For medical emergencies, please call our emergency helpline or visit the
+                            emergency department directly. Do not wait for a response to your message.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4 text-center text-primary">Find Us on Map</h3>
+                <div class="map-container shadow rounded overflow-hidden">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.4741661089916!2d73.85353431490036!3d18.464087387509935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea9f0000001f%3A0x1d2ff2e87b2a8ae6!2sBharti%20Vidyapeeth%20Medical%20College%20and%20Hospital!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department Contact Numbers -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4 text-center text-primary">Department Contact Numbers</h3>
+                <div class="table-responsive shadow-sm rounded">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="py-3">Department</th>
+                                <th class="py-3">Extension</th>
+                                <th class="py-3">Direct Line</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cardiology</td>
+                                <td class="text-muted">Ext. 201</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6201</td>
+                            </tr>
+                            <tr>
+                                <td>Neurology</td>
+                                <td class="text-muted">Ext. 305</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6305</td>
+                            </tr>
+                            <tr>
+                                <td>Orthopedics</td>
+                                <td class="text-muted">Ext. 402</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6402</td>
+                            </tr>
+                            <tr>
+                                <td>Pediatrics</td>
+                                <td class="text-muted">Ext. 105</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6105</td>
+                            </tr>
+                            <tr>
+                                <td>Gynecology</td>
+                                <td class="text-muted">Ext. 302</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6302</td>
+                            </tr>
+                            <tr>
+                                <td>Laboratory</td>
+                                <td class="text-muted">Ext. 110</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6110</td>
+                            </tr>
+                            <tr>
+                                <td>Radiology</td>
+                                <td class="text-muted">Ext. 120</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6120</td>
+                            </tr>
+                            <tr>
+                                <td>Pharmacy</td>
+                                <td class="text-muted">Ext. 150</td>
+                                <td class="fw-bold text-primary">+91 20 2437 6150</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">Bharti Vidyapeeth Hospital</h5>
+                    <p class="text-light opacity-75">Dedicated to excellence in patient care, education, and research.
+                        Your health is our priority.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Our Departments</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="departments.html">Cardiology</a></li>
+                        <li><a href="departments.html">Neurology</a></li>
+                        <li><a href="departments.html">Orthopedics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Dhankawadi, Katraj, Pune</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +91 20 2437 8888</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-light opacity-25">
+            <div class="text-center text-light opacity-75">
+                <p class="mb-0">&copy; 2026 Bharti Vidyapeeth Hospital, Pune. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <!-- Custom Validation Script -->
+    <script src="appointment-validation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="user-service.js"></script></body>
+
+</html>
+

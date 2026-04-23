@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Bharti Vidyapeeth Hospital</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heart-pulse text-danger me-2"></i>BV Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-out"><a href="login.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Login</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-out mt-2 mt-lg-0"><a href="register.html" class="btn btn-custom-primary btn-sm rounded-pill px-4">Register</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-in" style="display: none;"><a href="profile.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Profile</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-in mt-2 mt-lg-0" style="display: none;"><button onclick="userService.logout()" class="btn btn-custom-primary btn-sm rounded-pill px-4">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="hero-section" style="height: 50vh; min-height: 400px;">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10 hero-content">
+                    <h1>Our Services</h1>
+                    <p>Comprehensive Healthcare Solutions Under One Roof</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        <!-- Emergency Services -->
+        <div class="row mb-5">
+            <div class="col-lg-12">
+                <div class="feature-card h-100 text-start p-0 overflow-hidden border-0 shadow">
+                    <div class="p-4 bg-danger text-white text-center">
+                        <i class="fas fa-ambulance fa-3x mb-3"></i>
+                        <h3 class="h4 text-white">24/7 Emergency Services</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="mb-3 text-secondary">Emergency Department Features:</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item border-0 px-0"><i
+                                            class="fas fa-check-circle text-success me-2"></i> Trauma Care Unit with
+                                        Advanced Life Support</li>
+                                    <li class="list-group-item border-0 px-0"><i
+                                            class="fas fa-check-circle text-success me-2"></i> Dedicated Emergency
+                                        Physicians 24/7</li>
+                                    <li class="list-group-item border-0 px-0"><i
+                                            class="fas fa-check-circle text-success me-2"></i> Ambulance Service with
+                                        Paramedics</li>
+                                    <li class="list-group-item border-0 px-0"><i
+                                            class="fas fa-check-circle text-success me-2"></i> Code Blue Team for
+                                        Cardiac Emergencies</li>
+                                    <li class="list-group-item border-0 px-0"><i
+                                            class="fas fa-check-circle text-success me-2"></i> Emergency Laboratory &
+                                        Imaging</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="mb-3 text-secondary">Emergency Contact:</h5>
+                                <div class="alert alert-danger shadow-sm border-danger">
+                                    <h4><strong><i class="fas fa-phone-alt me-2"></i> Emergency Helpline:</strong></h4>
+                                    <h3 class="fw-bold">+91 20 2437 8888</h3>
+                                    <p class="mb-0">Available 24 hours, 7 days a week</p>
+                                </div>
+                                <div class="alert alert-info shadow-sm border-info">
+                                    <strong><i class="fas fa-truck-medical me-2"></i> Ambulance Service:</strong> +91 20
+                                    2437 9999
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagnostic Services -->
+        <h2 class="mb-5 text-center">Diagnostic Services</h2>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="feature-card h-100 text-start p-0 overflow-hidden border-0 shadow">
+                    <div class="p-4 bg-primary text-white text-center">
+                        <i class="fas fa-microscope fa-3x mb-3"></i>
+                        <h3 class="h4 text-white">Laboratory Services</h3>
+                    </div>
+                    <div class="p-4">
+                        <ul class="list-group list-group-flush mt-3">
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Complete Blood Count (CBC)</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Biochemistry Tests</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Microbiology & Culture</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Hormone Analysis</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i> Tumor
+                                Markers</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Genetic Testing</li>
+                        </ul>
+                        <div class="mt-3">
+                            <span class="badge bg-success rounded-pill px-3 py-2"><i class="fas fa-check me-1"></i> NABL
+                                Accredited</span>
+                            <span class="badge bg-primary rounded-pill px-3 py-2"><i class="fas fa-clock me-1"></i> 24/7
+                                Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card h-100 text-start p-0 overflow-hidden border-0 shadow">
+                    <div class="p-4 bg-primary text-white text-center">
+                        <i class="fas fa-x-ray fa-3x mb-3"></i>
+                        <h3 class="h4 text-white">Imaging Services</h3>
+                    </div>
+                    <div class="p-4">
+                        <ul class="list-group list-group-flush mt-3">
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Digital X-Ray</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i> CT
+                                Scan (128 Slice)</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i> MRI
+                                (1.5 Tesla & 3 Tesla)</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Ultrasound & Doppler</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Mammography</li>
+                            <li class="list-group-item px-0"><i class="fas fa-angle-right text-primary me-2"></i>
+                                Fluoroscopy</li>
+                        </ul>
+                        <div class="mt-3">
+                            <span class="badge bg-warning text-dark rounded-pill px-3 py-2"><i
+                                    class="fas fa-star me-1"></i> Advanced Equipment</span>
+                            <span class="badge bg-primary rounded-pill px-3 py-2"><i class="fas fa-user-md me-1"></i>
+                                Expert Radiologists</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialized Services Accordion -->
+        <h2 class="mb-5 text-center">Specialized Services</h2>
+        <div class="accordion mb-5 shadow-sm" id="servicesAccordion">
+            <div class="accordion-item border-0 mb-3 rounded shadow-sm overflow-hidden">
+                <h2 class="accordion-header">
+                    <button class="accordion-button fw-bold text-primary bg-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#surgical">
+                        <i class="fas fa-procedures me-2"></i> Surgical Services
+                    </button>
+                </h2>
+                <div id="surgical" class="accordion-collapse collapse show" data-bs-parent="#servicesAccordion">
+                    <div class="accordion-body bg-white">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-primary">General Surgery</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i>
+                                        Laparoscopic Procedures</li>
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i> Hernia
+                                        Repair</li>
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i>
+                                        Appendectomy</li>
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i>
+                                        Gallbladder Surgery</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Specialized Surgery</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i> Cardiac
+                                        Surgery</li>
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i>
+                                        Neurosurgery</li>
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i>
+                                        Orthopedic Surgery</li>
+                                    <li class="mb-2"><i class="fas fa-dot-circle text-secondary me-2 small"></i>
+                                        Gynecological Surgery</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-3 mb-0">
+                            <strong><i class="fas fa-info-circle me-1"></i> Features:</strong> 8 Modern Operation
+                            Theaters | ICU Support | Post-op Care
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 mb-3 rounded shadow-sm overflow-hidden">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold text-primary bg-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#icu">
+                        <i class="fas fa-bed-pulse me-2"></i> Critical Care Services
+                    </button>
+                </h2>
+                <div id="icu" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                    <div class="accordion-body bg-white">
+                        <h5 class="text-primary">Intensive Care Units:</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-caret-right text-primary me-2"></i> <strong>Medical ICU
+                                    (MICU):</strong> 20 beds with ventilator support</li>
+                            <li class="mb-2"><i class="fas fa-caret-right text-primary me-2"></i> <strong>Surgical ICU
+                                    (SICU):</strong> 15 beds for post-surgical patients</li>
+                            <li class="mb-2"><i class="fas fa-caret-right text-primary me-2"></i> <strong>Cardiac ICU
+                                    (CICU):</strong> 12 beds with cardiac monitoring</li>
+                            <li class="mb-2"><i class="fas fa-caret-right text-primary me-2"></i> <strong>Neonatal ICU
+                                    (NICU):</strong> 25 beds for newborns</li>
+                            <li class="mb-2"><i class="fas fa-caret-right text-primary me-2"></i> <strong>Pediatric ICU
+                                    (PICU):</strong> 10 beds for children</li>
+                        </ul>
+                        <div class="alert alert-warning mb-0">
+                            <i class="fas fa-exclamation-triangle me-1"></i> All ICUs equipped with Central Monitoring
+                            System and 24/7 Intensivist Coverage
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item border-0 rounded shadow-sm overflow-hidden">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold text-primary bg-light" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#wellness">
+                        <i class="fas fa-running me-2"></i> Wellness & Preventive Care
+                    </button>
+                </h2>
+                <div id="wellness" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                    <div class="accordion-body bg-white">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Health Checkup Packages:</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-heart text-danger me-2 small"></i> Basic Health
+                                        Screening</li>
+                                    <li class="mb-2"><i class="fas fa-heart text-danger me-2 small"></i> Executive
+                                        Health Checkup</li>
+                                    <li class="mb-2"><i class="fas fa-heart text-danger me-2 small"></i> Senior Citizen
+                                        Package</li>
+                                    <li class="mb-2"><i class="fas fa-heart text-danger me-2 small"></i> Women's
+                                        Wellness Package</li>
+                                    <li class="mb-2"><i class="fas fa-heart text-danger me-2 small"></i> Cardiac
+                                        Screening</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Wellness Programs:</h5>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-apple-alt text-success me-2 small"></i> Diabetes
+                                        Management Program</li>
+                                    <li class="mb-2"><i class="fas fa-apple-alt text-success me-2 small"></i> Weight
+                                        Management Clinic</li>
+                                    <li class="mb-2"><i class="fas fa-apple-alt text-success me-2 small"></i>
+                                        Physiotherapy & Rehabilitation</li>
+                                    <li class="mb-2"><i class="fas fa-apple-alt text-success me-2 small"></i> Dietary
+                                        Consultation</li>
+                                    <li class="mb-2"><i class="fas fa-apple-alt text-success me-2 small"></i> Mental
+                                        Health Support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Services -->
+        <h2 class="mb-5 text-center">Additional Facilities</h2>
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-card text-center shadow h-100 p-4">
+                    <div class="icon-box mx-auto mb-3 text-primary">
+                        <i class="fas fa-pills fa-2x"></i>
+                    </div>
+                    <h5>24/7 Pharmacy</h5>
+                    <p class="small text-muted mb-0">In-house pharmacy with all essential medications</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-card text-center shadow h-100 p-4">
+                    <div class="icon-box mx-auto mb-3 text-danger">
+                        <i class="fas fa-tint fa-2x"></i>
+                    </div>
+                    <h5>Blood Bank</h5>
+                    <p class="small text-muted mb-0">Well-equipped blood bank with all blood groups</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-card text-center shadow h-100 p-4">
+                    <div class="icon-box mx-auto mb-3 text-warning">
+                        <i class="fas fa-utensils fa-2x"></i>
+                    </div>
+                    <h5>Cafeteria</h5>
+                    <p class="small text-muted mb-0">Healthy meals for patients and visitors</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="feature-card text-center shadow h-100 p-4">
+                    <div class="icon-box mx-auto mb-3 text-info">
+                        <i class="fas fa-parking fa-2x"></i>
+                    </div>
+                    <h5>Parking</h5>
+                    <p class="small text-muted mb-0">Ample parking space for visitors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">Bharti Vidyapeeth Hospital</h5>
+                    <p class="text-light opacity-75">Dedicated to excellence in patient care, education, and research.
+                        Your health is our priority.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Our Departments</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="departments.html">Cardiology</a></li>
+                        <li><a href="departments.html">Neurology</a></li>
+                        <li><a href="departments.html">Orthopedics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Dhankawadi, Katraj, Pune</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +91 20 2437 8888</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-light opacity-25">
+            <div class="text-center text-light opacity-75">
+                <p class="mb-0">&copy; 2026 Bharti Vidyapeeth Hospital, Pune. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="user-service.js"></script></body>
+
+</html>
+

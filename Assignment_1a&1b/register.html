@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Bharti Vidyapeeth Hospital</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        .auth-container {
+            max-width: 600px;
+            margin: 120px auto 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heart-pulse text-danger me-2"></i>BV Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                    <!-- Dynamic Auth Links -->
+                    <li class="nav-item ms-lg-3 auth-logged-out">
+                        <a href="login.html" class="btn btn-outline-primary btn-sm rounded-pill px-4">Login</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 auth-logged-out mt-2 mt-lg-0">
+                        <a href="register.html"
+                            class="btn btn-custom-primary btn-sm rounded-pill px-4 active">Register</a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3 auth-logged-in" style="display: none;">
+                        <a href="profile.html" class="btn btn-outline-primary btn-sm rounded-pill px-4">Profile</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 auth-logged-in mt-2 mt-lg-0" style="display: none;">
+                        <button onclick="userService.logout()"
+                            class="btn btn-custom-primary btn-sm rounded-pill px-4">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container auth-container">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-primary">Create Account</h2>
+                    <p class="text-muted">Join BV Hospital to manage your appointments</p>
+                </div>
+
+                <div id="alertMessage" class="alert d-none" role="alert"></div>
+
+                <form id="registerForm">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-medium text-secondary">Username *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i
+                                        class="fas fa-user-circle text-muted"></i></span>
+                                <input type="text" id="regUsername" required
+                                    class="form-control bg-light border-start-0 py-2">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-medium text-secondary">Password *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i
+                                        class="fas fa-lock text-muted"></i></span>
+                                <input type="password" id="regPassword" required
+                                    class="form-control bg-light border-start-0 py-2">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-medium text-secondary">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i
+                                        class="fas fa-envelope text-muted"></i></span>
+                                <input type="email" id="regEmail" class="form-control bg-light border-start-0 py-2">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-medium text-secondary">Age</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i
+                                        class="fas fa-calendar-alt text-muted"></i></span>
+                                <input type="number" id="regAge" class="form-control bg-light border-start-0 py-2">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label fw-medium text-secondary">City</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0"><i
+                                        class="fas fa-map-marker-alt text-muted"></i></span>
+                                <input type="text" id="regCity" class="form-control bg-light border-start-0 py-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-custom-primary w-100 py-2 mt-2 rounded-pill shadow-sm">Complete
+                        Registration</button>
+
+                    <div class="text-center mt-4">
+                        <p class="mb-0 text-muted">Already have an account? <a href="login.html"
+                                class="fw-semibold text-decoration-none text-danger">Login instead</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="user-service.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Redirect if already logged in
+            if (userService.isLoggedIn()) {
+                window.location.href = 'profile.html';
+                return;
+            }
+
+            const registerForm = document.getElementById('registerForm');
+            const alertMsg = document.getElementById('alertMessage');
+
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const user = {
+                    username: document.getElementById('regUsername').value,
+                    password: document.getElementById('regPassword').value,
+                    email: document.getElementById('regEmail').value,
+                    age: document.getElementById('regAge').value,
+                    city: document.getElementById('regCity').value
+                };
+
+                if (!user.username || !user.password) {
+                    showAlert('Username and password are required', 'danger');
+                    return;
+                }
+
+                const result = userService.register(user);
+
+                if (result.success) {
+                    showAlert('Registration successful! Redirecting to login...', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 1500);
+                } else {
+                    showAlert(result.message, 'danger');
+                }
+            });
+
+            function showAlert(message, type) {
+                alertMsg.textContent = message;
+                alertMsg.className = `alert alert-${type}`;
+                alertMsg.classList.remove('d-none');
+            }
+        });
+    </script>
+</body>
+
+</html>

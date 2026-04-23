@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Doctors - Bharti Vidyapeeth Hospital</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heart-pulse text-danger me-2"></i>BV Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-out"><a href="login.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Login</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-out mt-2 mt-lg-0"><a href="register.html" class="btn btn-custom-primary btn-sm rounded-pill px-4">Register</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-in" style="display: none;"><a href="profile.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Profile</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-in mt-2 mt-lg-0" style="display: none;"><button onclick="userService.logout()" class="btn btn-custom-primary btn-sm rounded-pill px-4">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="hero-section" style="height: 50vh; min-height: 400px;">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10 hero-content">
+                    <h1>Our Medical Experts</h1>
+                    <p>Experienced & Qualified Doctors Committed to Your Health</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Doctors Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Doctor 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Rajesh Sharma</h3>
+                            <p class="doctor-specialty">Cardiologist</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MD (Medicine), DM (Cardiology)<br>FACC, FESC</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 18 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Sat: 10:00 AM - 2:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Priya Deshmukh</h3>
+                            <p class="doctor-specialty">Neurologist</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MD (Medicine)<br>DM (Neurology)</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 15 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Fri: 11:00 AM - 3:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Amit Patil</h3>
+                            <p class="doctor-specialty">Orthopedic Surgeon</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MS (Orthopedics)<br>Fellowship in Joint Replacement</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 20 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Sat: 9:00 AM - 1:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Sneha Kulkarni</h3>
+                            <p class="doctor-specialty">Pediatrician</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MD (Pediatrics)<br>IAP Fellowship in Neonatology</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 12 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Sat: 4:00 PM - 7:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Anil Joshi</h3>
+                            <p class="doctor-specialty">Ophthalmologist</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MS (Ophthalmology)<br>FICO, Fellowship in Phaco</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 16 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Sat: 10:00 AM - 4:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Suresh Mehta</h3>
+                            <p class="doctor-specialty">General Physician</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MD (Medicine)<br>DNB (General Medicine)</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 22 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi, Gujarati</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Sat: 8:00 AM - 12:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Manjiri Deshpande</h3>
+                            <p class="doctor-specialty">Gynecologist & Obstetrician</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MD (Obs & Gynae)<br>FICOG, MRCOG</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 14 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> OPD:</strong> Mon-Sat: 11:00 AM - 5:00
+                                    PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Kavita Rane</h3>
+                            <p class="doctor-specialty">Pathologist</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MD (Pathology)<br>FRCPath</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 17 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> Lab:</strong> 24/7 Service
+                                    Available</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 9 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="doctor-card h-100">
+                        <div class="doctor-img-wrapper">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Vikram Shinde</h3>
+                            <p class="doctor-specialty">Radiologist</p>
+                            <div class="badge bg-light text-dark p-2 mb-3 d-block text-start border">
+                                <small class="fw-bold">MBBS, MD (Radiology)<br>FRCR, DNB</small>
+                            </div>
+                            <ul class="list-unstyled text-start small mb-3">
+                                <li class="mb-2"><i class="fas fa-briefcase text-primary me-2"></i> 13 Years Experience
+                                </li>
+                                <li class="mb-2"><i class="fas fa-language text-primary me-2"></i> English, Hindi,
+                                    Marathi</li>
+                            </ul>
+                            <div class="alert alert-info py-2 px-3 text-start mb-0">
+                                <small><strong><i class="far fa-clock me-1"></i> Imaging:</strong> 24/7 Service
+                                    Available</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">Bharti Vidyapeeth Hospital</h5>
+                    <p class="text-light opacity-75">Dedicated to excellence in patient care, education, and research.
+                        Your health is our priority.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Our Departments</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="departments.html">Cardiology</a></li>
+                        <li><a href="departments.html">Neurology</a></li>
+                        <li><a href="departments.html">Orthopedics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Dhankawadi, Katraj, Pune</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +91 20 2437 8888</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-light opacity-25">
+            <div class="text-center text-light opacity-75">
+                <p class="mb-0">&copy; 2026 Bharti Vidyapeeth Hospital, Pune. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="user-service.js"></script></body>
+
+</html>
+

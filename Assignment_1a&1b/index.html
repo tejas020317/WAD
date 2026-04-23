@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharti Vidyapeeth Hospital - Excellence in Healthcare</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heart-pulse text-danger me-2"></i>BV Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-out"><a href="login.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Login</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-out mt-2 mt-lg-0"><a href="register.html" class="btn btn-custom-primary btn-sm rounded-pill px-4">Register</a></li>
+                    <li class="nav-item ms-lg-3 auth-logged-in" style="display: none;"><a href="profile.html" class="btn btn-outline-primary btn-sm rounded-pill px-4" style="border-color: var(--primary-color); color: var(--primary-color);">Profile</a></li>
+                    <li class="nav-item ms-lg-2 auth-logged-in mt-2 mt-lg-0" style="display: none;"><button onclick="userService.logout()" class="btn btn-custom-primary btn-sm rounded-pill px-4">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10 hero-content">
+                    <h1>World-Class Healthcare<br>with a Human Touch</h1>
+                    <p>Providing advanced medical care, compassionate service, and state-of-the-art facilities in Pune since 1989.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="departments.html" class="btn btn-custom-primary">Explore Departments</a>
+                        <a href="contact.html" class="btn btn-outline-light rounded-pill px-4 py-2 fw-bold" style="border-width: 2px;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fas fa-hospital-user"></i>
+                        </div>
+                        <h4>Advanced Care</h4>
+                        <p class="text-muted mb-0">State-of-the-art infrastructure for comprehensive medical treatment.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h4>Expert Doctors</h4>
+                        <p class="text-muted mb-0">Highly qualified specialists dedicated to patient recovery.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h4>24/7 Emergency</h4>
+                        <p class="text-muted mb-0">Round-the-clock emergency services and trauma care.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h4>Pharmacy</h4>
+                        <p class="text-muted mb-0">In-house pharmacy stocked with all essential medications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3 stat-item">
+                    <h3>500+</h3>
+                    <p>Hospital Beds</p>
+                </div>
+                <div class="col-6 col-md-3 stat-item">
+                    <h3>150+</h3>
+                    <p>Specialist Doctors</p>
+                </div>
+                <div class="col-6 col-md-3 stat-item">
+                    <h3>25+</h3>
+                    <p>Departments</p>
+                </div>
+                <div class="col-6 col-md-3 stat-item">
+                    <h3>1000+</h3>
+                    <p>Medical Staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">Bharti Vidyapeeth Hospital</h5>
+                    <p class="text-light opacity-75">Dedicated to excellence in patient care, education, and research. Your health is our priority.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Our Departments</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="departments.html">Cardiology</a></li>
+                        <li><a href="departments.html">Neurology</a></li>
+                        <li><a href="departments.html">Orthopedics</a></li>
+                        <li><a href="departments.html">Pediatrics</a></li>
+                        <li><a href="departments.html">Oncology</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Dhankawadi, Katraj, Pune</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +91 20 2437 8888</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@bvhospitalpune.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-light opacity-25">
+            <div class="text-center text-light opacity-75">
+                <p class="mb-0">&copy; 2026 Bharti Vidyapeeth Hospital, Pune. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="user-service.js"></script></body>
+</html>
+

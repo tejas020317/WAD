@@ -1,0 +1,61 @@
+<div class="auth-wrapper">
+  <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4 mx-auto">
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <div class="mb-3 text-primary">
+          <i class="bi bi-person-plus" style="font-size: 3rem;"></i>
+        </div>
+        <h3>Create Account</h3>
+        <p class="text-muted small mt-2">Join us to get started</p>
+      </div>
+      <div class="auth-card-body pt-0">
+        <form (ngSubmit)="register()" #registerForm="ngForm">
+          <div class="mb-4">
+            <label class="form-label text-muted small fw-bold text-uppercase ms-1">Full Name</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-text-custom">
+                <i class="bi bi-person"></i>
+              </span>
+              <input type="text" class="form-control form-control-custom with-icon" placeholder="John Doe" name="name" [(ngModel)]="user.name" required>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label text-muted small fw-bold text-uppercase ms-1">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-text-custom">
+                <i class="bi bi-envelope"></i>
+              </span>
+              <input type="email" class="form-control form-control-custom with-icon" placeholder="name@example.com" name="email" [(ngModel)]="user.email" required>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label text-muted small fw-bold text-uppercase ms-1">Password</label>
+            <div class="input-group">
+              <span class="input-group-text input-group-text-custom">
+                <i class="bi bi-lock"></i>
+              </span>
+              <input type="password" class="form-control form-control-custom with-icon" placeholder="••••••••" name="password" [(ngModel)]="user.password" required>
+            </div>
+          </div>
+          
+          <div class="d-grid mt-5">
+            <button type="submit" class="btn btn-modern d-flex justify-content-center align-items-center gap-2" [disabled]="!registerForm.valid">
+              <span>Sign Up</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="text-center mt-4">
+            <p class="text-muted small">
+              Already have an account? <a routerLink="/login" class="text-primary fw-bold text-decoration-none ms-1">Login here</a>
+            </p>
+          </div>
+        </form>
+        <div *ngIf="errorMsg" class="alert alert-danger mt-3 d-flex align-items-center gap-2 border-0 rounded-3">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          {{ errorMsg }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

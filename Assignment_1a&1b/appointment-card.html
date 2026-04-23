@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmed - Bharti Vidyapeeth Hospital</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border: none;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s both;
+        }
+
+        .data-row {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .value {
+            font-weight: 500;
+            color: #212529;
+            font-size: 1.1rem;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container p-3">
+        <div class="confirmation-card mx-auto">
+            <div class="card-header">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Appointment Request Received!</h3>
+                <p class="mb-0 opacity-75">We will contact you shortly to confirm.</p>
+            </div>
+            <div class="card-body p-4">
+                <div id="cardContent">
+                    <!-- Content will be populated by JS -->
+                    <div class="text-center text-muted">Loading details...</div>
+                </div>
+
+                <div class="mt-4 pt-3 text-center border-top">
+                    <a href="index.html" class="btn btn-outline-primary rounded-pill px-4">Back to Home</a>
+                    <a href="contact.html" class="btn btn-link text-decoration-none text-muted">Book Another</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dataString = localStorage.getItem('appointmentData');
+            const container = document.getElementById('cardContent');
+
+            if (!dataString) {
+                container.innerHTML = `
+                    <div class="text-center text-danger">
+                        <i class="fas fa-exclamation-triangle fa-2x mb-3"></i>
+                        <p>No appointment data found. Please go back and fill the form again.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const data = JSON.parse(dataString);
+
+            // Generate Days Badges
+            const daysHtml = data.preferredDays.length > 0
+                ? data.preferredDays.map(day => `<span class="badge bg-info text-dark me-1">${day}</span>`).join('')
+                : '<span class="text-muted">No specific preference</span>';
+
+            container.innerHTML = `
+                <div class="data-row">
+                    <div class="label">Name</div>
+                    <div class="value">${escapeHtml(data.name)}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Date of Birth</div>
+                    <div class="value">${escapeHtml(data.dob)}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Phone Number</div>
+                    <div class="value">${escapeHtml(data.phone)}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Gender</div>
+                    <div class="value">${escapeHtml(data.gender)}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Email</div>
+                    <div class="value">${escapeHtml(data.email)}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Subject</div>
+                    <div class="value">${escapeHtml(data.subject)}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Preferred Days</div>
+                    <div class="value mt-1">${daysHtml}</div>
+                </div>
+                <div class="data-row">
+                    <div class="label">Submitted On</div>
+                    <div class="value small text-muted">${data.submittedAt}</div>
+                </div>
+            `;
+        });
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+
+</html>

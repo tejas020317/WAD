@@ -1,0 +1,294 @@
+/* Base styles & Colors */
+:root {
+    --primary-green: #68a063;
+    --light-green: #e9f2e9;
+    --beige-bg: #fdfaf6;
+    --text-main: #4a4a4a;
+    --text-light: #777;
+    --white: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--beige-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: none; /* For jQuery fade-in effect */
+}
+
+/* Navigation */
+nav {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-green);
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-green);
+    background: none;
+    border: none;
+}
+
+/* General Section Styling */
+main {
+    padding-top: 5rem; /* account for fixed nav */
+    min-height: calc(100vh - 80px); /* Fill screen minus footer */
+}
+
+section {
+    padding: 5rem 5% 3rem;
+    min-height: auto;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-green);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Home Section */
+#home {
+    background-color: var(--light-green);
+    text-align: center;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    height: 100%;
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.home-content p {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Benefits Section */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+/* Diet Plan Section */
+#diet-plan {
+    background-color: var(--white);
+}
+
+.diet-table-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--beige-bg);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+}
+
+th {
+    background-color: var(--primary-green);
+    color: var(--white);
+    font-weight: 500;
+}
+
+tr:hover {
+    background-color: #f4efeb;
+}
+
+/* Tips Section */
+.tips-list {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.tips-list li {
+    background-color: var(--white);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary-green);
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+}
+
+.tips-list h4 {
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.submit-btn {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #558750;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .home-content h1 {
+        font-size: 2.2rem;
+    }
+}
